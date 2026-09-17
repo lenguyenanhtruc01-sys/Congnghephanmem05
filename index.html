@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROOMCONNECT - Tổng quan</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f5f7fa;
+            color: #1f2937;
+        }
+
+        /* ================= HEADER ================= */
+
+        .header {
+            height: 70px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 28px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 220px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #2563eb;
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1d4ed8;
+        }
+
+        .search-box {
+            width: 420px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            height: 42px;
+            border: 1px solid #d1d5db;
+            border-radius: 9px;
+            padding: 0 15px 0 42px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: #2563eb;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 12px;
+            font-size: 16px;
+            color: #6b7280;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-icon {
+            position: relative;
+            font-size: 21px;
+            cursor: pointer;
+        }
+
+        .notification {
+            position: absolute;
+            top: -6px;
+            right: -7px;
+            background-color: #ef4444;
+            color: white;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .admin {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background-color: #dbeafe;
+            color: #1d4ed8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .admin-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .admin-name {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .admin-role {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        /* ================= SIDEBAR ================= */
+
+        .sidebar {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            bottom: 0;
+            width: 245px;
+            background-color: #ffffff;
+            border-right: 1px solid #e5e7eb;
+            padding: 20px 14px;
+            overflow-y: auto;
+        }
+
+        .menu-title {
+            font-size: 11px;
+            font-weight: bold;
+            color: #9ca3af;
+            text-transform: uppercase;
+            padding: 10px 14px;
+            margin-bottom: 5px;
+        }
+
+        .menu {
+            list-style: none;
+        }
+
+        .menu li {
+            margin-bottom: 5px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #4b5563;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .menu a:hover {
+            background-color: #eff6ff;
+            color: #2563eb;
+        }
+
+        .menu a.active {
+            background-color: #2563eb;
+            color: white;
+        }
+
+        .menu-icon {
+            width: 20px;
+            text-align: center;
+            font-size: 17px;
+        }
+
+        .menu-arrow {
+            margin-left: auto;
+            font-size: 12px;
+        }
+
+        .submenu {
+            list-style: none;
+            margin-left: 28px;
+            margin-top: 4px;
+        }
+
+        .submenu a {
+            padding: 9px 12px;
+            font-size: 13px;
+        }
+
+        /* ================= MAIN ================= */
+
+        .main {
+            margin-left: 245px;
+            padding: 100px 30px 40px;
+        }
+
+        .page-header {
+            margin-bottom: 25px;
+        }
+
+        .page-header h1 {
+            font-size: 26px;
+            margin-bottom: 7px;
+        }
+
+        .page-header p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* ================= STATISTICS ================= */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-info p {
+            color: #6b7280;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .stat-info h2 {
+            font-size: 27px;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background-color: #eff6ff;
+            color: #2563eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        /* ================= CONTENT ================= */
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .card-header h3 {
+            font-size: 17px;
+        }
+
+        .view-all {
+            text-decoration: none;
+            color: #2563eb;
+            font-size: 13px;
+        }
+
+        /* ================= TABLE ================= */
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #f9fafb;
+            color: #6b7280;
+            font-size: 12px;
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        td {
+            padding: 13px 12px;
+            border-bottom: 1px solid #f1f1f1;
+            font-size: 13px;
+        }
+
+        .status {
+            padding: 5px 9px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .status-active {
+            background-color: #dcfce7;
+            color: #15803d;
+        }
+
+        .status-pending {
+            background-color: #fef3c7;
+            color: #b45309;
+        }
+
+        /* ================= ACTIVITY ================= */
+
+        .activity {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .activity-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: #eff6ff;
+            color: #2563eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .activity-text {
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .activity-time {
+            color: #9ca3af;
+            font-size: 11px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        .footer {
+            margin-left: 245px;
+            padding: 20px 30px;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 12px;
+            background-color: white;
+            text-align: center;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1000px) {
+
+            .search-box {
+                width: 280px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .header {
+                padding: 0 15px;
+            }
+
+            .logo {
+                min-width: auto;
+            }
+
+            .logo-text {
+                display: none;
+            }
+
+            .search-box {
+                width: 180px;
+            }
+
+            .admin-info {
+                display: none;
+            }
+
+            .sidebar {
+                width: 65px;
+                padding: 15px 8px;
+            }
+
+            .menu-title,
+            .menu a span:not(.menu-icon),
+            .submenu {
+                display: none;
+            }
+
+            .menu a {
+                justify-content: center;
+            }
+
+            .menu-icon {
+                margin: 0;
+            }
+
+            .main {
+                margin-left: 65px;
+                padding: 95px 15px 30px;
+            }
+
+            .footer {
+                margin-left: 65px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+            <div class="logo-icon">🏠</div>
+            <div class="logo-text">ROOMCONNECT</div>
+        </div>
+
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input
+                type="text"
+                placeholder="Tìm kiếm người thuê, chủ trọ, phòng..."
+            >
+        </div>
+
+        <div class="header-right">
+
+            <div class="header-icon">
+                🔔
+                <span class="notification">3</span>
+            </div>
+
+            <div class="header-icon">
+                💬
+            </div>
+
+            <div class="admin">
+                <div class="avatar">A</div>
+
+                <div class="admin-info">
+                    <span class="admin-name">Admin</span>
+                    <span class="admin-role">Quản trị viên</span>
+                </div>
+
+                <span>▾</span>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="menu-title">MENU CHÍNH</div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="index.html" class="active">
+                    <span class="menu-icon">🏠</span>
+                    <span>Tổng quan</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span class="menu-icon">👥</span>
+                    <span>Quản lý khách hàng</span>
+                    <span class="menu-arrow">›</span>
+                </a>
+
+                <ul class="submenu">
+
+                    <li>
+                        <a href="#">
+                            <span>Người thuê</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span>Người cho thuê</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span>Quan hệ khách hàng</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span class="menu-icon">🏘️</span>
+                    <span>Quản lý nhà trọ</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span class="menu-icon">🚪</span>
+                    <span>Quản lý phòng</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span class="menu-icon">📅</span>
+                    <span>Quản lý đặt phòng</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span class="menu-icon">💳</span>
+                    <span>Quản lý giao dịch</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span class="menu-icon">💬</span>
+                    <span>Chăm sóc khách hàng</span>
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="menu-title">HỆ THỐNG</div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="#">
+                    <span class="menu-icon">⚙️</span>
+                    <span>Cài đặt</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main">
+
+        <div class="page-header">
+
+            <h1>Tổng quan</h1>
+
+            <p>
+                Chào mừng bạn đến với hệ thống quản lý ROOMCONNECT.
+            </p>
+
+        </div>
+
+
+        <!-- THỐNG KÊ -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <div class="stat-info">
+                    <p>Tổng người thuê</p>
+                    <h2>1,248</h2>
+                </div>
+
+                <div class="stat-icon">
+                    👥
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-info">
+                    <p>Người cho thuê</p>
+                    <h2>356</h2>
+                </div>
+
+                <div class="stat-icon">
+                    🏠
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-info">
+                    <p>Phòng đang đăng</p>
+                    <h2>824</h2>
+                </div>
+
+                <div class="stat-icon">
+                    🚪
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-info">
+                    <p>Yêu cầu hỗ trợ</p>
+                    <h2>18</h2>
+                </div>
+
+                <div class="stat-icon">
+                    💬
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- NỘI DUNG -->
+
+        <section class="content-grid">
+
+
+            <!-- HOẠT ĐỘNG GẦN ĐÂY -->
+
+            <div class="card">
+
+                <div class="card-header">
+
+                    <h3>Người dùng gần đây</h3>
+
+                    <a href="#" class="view-all">
+                        Xem tất cả
+                    </a>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>HỌ TÊN</th>
+                                <th>LOẠI TÀI KHOẢN</th>
+                                <th>TRẠNG THÁI</th>
+                                <th>NGÀY THAM GIA</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Nguyễn Văn An</td>
+                                <td>Người thuê</td>
+                                <td>
+                                    <span class="status status-active">
+                                        Đã xác thực
+                                    </span>
+                                </td>
+                                <td>16/09/2026</td>
+                            </tr>
+
+                            <tr>
+                                <td>Trần Thị Mai</td>
+                                <td>Người cho thuê</td>
+                                <td>
+                                    <span class="status status-active">
+                                        Đã xác thực
+                                    </span>
+                                </td>
+                                <td>15/09/2026</td>
+                            </tr>
+
+                            <tr>
+                                <td>Lê Minh Đức</td>
+                                <td>Người thuê</td>
+                                <td>
+                                    <span class="status status-pending">
+                                        Chờ xác thực
+                                    </span>
+                                </td>
+                                <td>15/09/2026</td>
+                            </tr>
+
+                            <tr>
+                                <td>Phạm Thị Lan</td>
+                                <td>Người cho thuê</td>
+                                <td>
+                                    <span class="status status-active">
+                                        Đã xác thực
+                                    </span>
+                                </td>
+                                <td>14/09/2026</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- HOẠT ĐỘNG -->
+
+            <div class="card">
+
+                <div class="card-header">
+
+                    <h3>Hoạt động gần đây</h3>
+
+                </div>
+
+
+                <div class="activity">
+
+                    <div class="activity-icon">
+                        👤
+                    </div>
+
+                    <div class="activity-text">
+                        <strong>Nguyễn Văn An</strong>
+                        đã đăng ký tài khoản.
+                        <div class="activity-time">
+                            10 phút trước
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="activity">
+
+                    <div class="activity-icon">
+                        🏠
+                    </div>
+
+                    <div class="activity-text">
+                        <strong>Trần Thị Mai</strong>
+                        đã đăng phòng mới.
+                        <div class="activity-time">
+                            35 phút trước
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="activity">
+
+                    <div class="activity-icon">
+                        💬
+                    </div>
+
+                    <div class="activity-text">
+                        Có yêu cầu hỗ trợ mới.
+                        <div class="activity-time">
+                            1 giờ trước
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="activity">
+
+                    <div class="activity-icon">
+                        ✓
+                    </div>
+
+                    <div class="activity-text">
+                        Một tài khoản đã được xác thực.
+                        <div class="activity-time">
+                            2 giờ trước
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        © 2026 ROOMCONNECT. Nền tảng kết nối và quản lý thuê phòng trọ.
+
+    </footer>
+
+</body>
+</html>
