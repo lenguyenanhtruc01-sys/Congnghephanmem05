@@ -159,6 +159,530 @@
       color: #94a3b8;
       cursor: not-allowed;
     }
+    /* =========================
+   MODAL CHI TIẾT HỒ SƠ
+========================= */
+
+.profile-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+  padding: 20px;
+}
+
+.profile-modal-content {
+  background: white;
+  width: 700px;
+  max-width: 100%;
+  max-height: 90vh;
+
+  border-radius: 16px;
+  overflow-y: auto;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+/* HEADER */
+
+.profile-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 25px;
+  border-bottom: 1px solid #eee;
+}
+
+.profile-modal-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.profile-modal-header p {
+  margin: 5px 0 0;
+  color: #777;
+}
+
+.profile-close {
+  border: none;
+  background: none;
+
+  font-size: 28px;
+  cursor: pointer;
+
+  color: #777;
+}
+
+.profile-close:hover {
+  color: #000;
+}
+
+
+/* BODY */
+
+.profile-modal-body {
+  padding: 25px;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+
+  margin: 0 auto 10px;
+
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #e8f1ff;
+  color: #2563eb;
+
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.profile-name {
+  text-align: center;
+  margin: 5px 0;
+  font-size: 22px;
+}
+
+.profile-id {
+  text-align: center;
+  color: #777;
+  margin-bottom: 25px;
+}
+
+
+/* SECTION */
+
+.profile-section {
+  margin-bottom: 25px;
+}
+
+.profile-section h3 {
+  font-size: 17px;
+  margin-bottom: 15px;
+
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+
+/* GRID */
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.profile-item {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.profile-item span {
+  display: block;
+  font-size: 13px;
+  color: #777;
+
+  margin-bottom: 5px;
+}
+
+.profile-item strong {
+  font-size: 14px;
+}
+
+
+/* HISTORY */
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px;
+
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.history-icon {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #e8f1ff;
+}
+
+.history-item strong {
+  display: block;
+  font-size: 14px;
+}
+
+.history-item small {
+  color: #777;
+}
+
+
+/* FOOTER */
+
+.profile-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  padding: 18px 25px;
+
+  border-top: 1px solid #eee;
+}
+
+.profile-modal-footer button {
+  padding: 10px 16px;
+
+  border-radius: 8px;
+  cursor: pointer;
+
+  font-size: 14px;
+}
+
+.btn-close-profile {
+  background: white;
+  border: 1px solid #ddd;
+}
+
+.btn-edit-profile {
+  background: #f3f4f6;
+  border: 1px solid #ddd;
+}
+
+.btn-action-profile {
+  background: #2563eb;
+  color: white;
+  border: none;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+  .profile-modal {
+    padding: 10px;
+  }
+
+  .profile-modal-content {
+    width: 100%;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-modal-footer {
+    flex-direction: column;
+  }
+
+  .profile-modal-footer button {
+    width: 100%;
+  }
+}
+/* MODAL THAO TÁC */
+
+.action-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 10000;
+}
+
+.action-modal-content {
+  width: 400px;
+  max-width: 90%;
+
+  background: white;
+  border-radius: 12px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+  overflow: hidden;
+}
+
+.action-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 20px;
+
+  border-bottom: 1px solid #eee;
+}
+
+.action-modal-header h3 {
+  margin: 0;
+}
+
+.action-modal-header button {
+  border: none;
+  background: none;
+
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.action-modal-body {
+  padding: 20px;
+}
+
+.action-option {
+  width: 100%;
+
+  padding: 12px;
+  margin-top: 10px;
+
+  background: #f8f9fa;
+
+  border: 1px solid #ddd;
+  border-radius: 8px;
+
+  text-align: left;
+  cursor: pointer;
+
+  font-size: 14px;
+}
+
+.action-option:hover {
+  background: #eee;
+}
+/* =========================
+   FORM CHỈNH SỬA HỒ SƠ
+========================= */
+
+.edit-modal {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  z-index: 10001;
+}
+
+.edit-modal-content {
+  width: 600px;
+  max-width: 100%;
+  max-height: 90vh;
+
+  background: white;
+
+  border-radius: 15px;
+
+  overflow-y: auto;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.edit-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 25px;
+
+  border-bottom: 1px solid #eee;
+}
+
+.edit-modal-header h2 {
+  margin: 0;
+}
+
+.edit-modal-header p {
+  margin: 5px 0 0;
+
+  color: #777;
+}
+
+.edit-close {
+  border: none;
+  background: none;
+
+  font-size: 28px;
+
+  cursor: pointer;
+}
+
+.edit-form-group {
+  padding: 0 25px;
+  margin-top: 18px;
+}
+
+.edit-form-group label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.edit-form-group input,
+.edit-form-group select {
+  width: 100%;
+
+  padding: 11px 12px;
+
+  border: 1px solid #ddd;
+  border-radius: 8px;
+
+  font-size: 14px;
+
+  box-sizing: border-box;
+}
+
+.edit-form-group input:focus,
+.edit-form-group select:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.checkbox-group label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  cursor: pointer;
+}
+
+.checkbox-group input {
+  width: auto;
+}
+
+.edit-form-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  padding: 20px 25px;
+
+  margin-top: 20px;
+
+  border-top: 1px solid #eee;
+}
+
+.edit-form-footer button {
+  padding: 10px 16px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+}
+
+.btn-cancel-edit {
+  background: white;
+
+  border: 1px solid #ddd;
+}
+
+.btn-save-edit {
+  background: #2563eb;
+
+  color: white;
+
+  border: none;
+}
+/* RESPONSIVE FORM */
+
+@media (max-width: 600px) {
+
+  .edit-modal {
+    padding: 10px;
+  }
+
+  .edit-modal-content {
+    width: 100%;
+    max-height: 95vh;
+  }
+
+  .edit-form-group {
+    padding: 0 15px;
+  }
+
+  .edit-form-footer {
+    padding: 15px;
+
+    flex-direction: column;
+  }
+
+  .edit-form-footer button {
+    width: 100%;
+  }
+}
+.profile-toast {
+  position: fixed;
+
+  right: 20px;
+  bottom: 20px;
+
+  background: #222;
+  color: white;
+
+  padding: 12px 18px;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+
+  z-index: 20000;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
   </style>
 </head>
 <body>
@@ -372,15 +896,892 @@
   function nextPage() { currentPage++; render(); }
 
   function viewDetail(id) {
-    alert("Xem chi tiết hồ sơ: " + id);
+
+  // Lấy danh sách dữ liệu hiện tại
+  const dataList = currentTab === 'renter'
+    ? mockRenters
+    : mockLandlords;
+
+  // Tìm người có mã tương ứng
+  const person = dataList.find(item => item.id === id);
+
+  // Không tìm thấy
+  if (!person) {
+    alert("Không tìm thấy hồ sơ!");
+    return;
   }
 
+  // Tạo modal
+  const modal = document.createElement("div");
+  modal.className = "profile-modal";
+
+  modal.innerHTML = `
+    <div class="profile-modal-content">
+
+      <div class="profile-modal-header">
+
+        <div>
+          <h2>Chi tiết hồ sơ</h2>
+          <p>
+            ${currentTab === 'renter'
+              ? 'Hồ sơ người thuê'
+              : 'Hồ sơ chủ trọ'}
+          </p>
+        </div>
+
+        <button class="profile-close"
+                onclick="this.closest('.profile-modal').remove()">
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="profile-modal-body">
+
+        <div class="profile-avatar">
+          ${person.name
+            .split(" ")
+            .map(word => word[0])
+            .slice(-2)
+            .join("")
+            .toUpperCase()}
+        </div>
+
+        <h3 class="profile-name">
+          ${person.name}
+        </h3>
+
+        <p class="profile-id">
+          Mã hồ sơ: ${person.id}
+        </p>
+
+
+        <!-- THÔNG TIN CÁ NHÂN -->
+
+        <div class="profile-section">
+
+          <h3>Thông tin cá nhân</h3>
+
+          <div class="profile-grid">
+
+            <div class="profile-item">
+              <span>Số điện thoại</span>
+              <strong>
+                ${person.phone || "Chưa cập nhật"}
+              </strong>
+            </div>
+
+            <div class="profile-item">
+              <span>Email</span>
+              <strong>
+                ${person.email || "Chưa cập nhật"}
+              </strong>
+            </div>
+
+            <div class="profile-item">
+              <span>Ngày tham gia</span>
+              <strong>
+                ${person.joinedDate || "Chưa cập nhật"}
+              </strong>
+            </div>
+
+            <div class="profile-item">
+              <span>Trạng thái</span>
+              <strong>
+                ${currentTab === 'renter'
+                  ? (person.status === 'renting'
+                      ? 'Đang thuê'
+                      : person.status === 'looking'
+                        ? 'Đang tìm phòng'
+                        : 'Đã trả phòng')
+                  : (person.status === 'active'
+                      ? 'Đang hoạt động'
+                      : person.status === 'paused'
+                        ? 'Tạm ngưng'
+                        : 'Đã cho thuê')}
+              </strong>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- THÔNG TIN THUÊ PHÒNG -->
+
+        ${
+          currentTab === 'renter'
+          ? `
+            <div class="profile-section">
+
+              <h3>Thông tin thuê phòng</h3>
+
+              <div class="profile-grid">
+
+                <div class="profile-item">
+                  <span>Phòng hiện tại</span>
+                  <strong>
+                    ${person.room || "Chưa có"}
+                  </strong>
+                </div>
+
+                <div class="profile-item">
+                  <span>Xác thực hồ sơ</span>
+                  <strong>
+                    ${person.verified
+                      ? "Đã xác thực"
+                      : "Chưa xác thực"}
+                  </strong>
+                </div>
+
+              </div>
+
+            </div>
+          `
+          : `
+            <div class="profile-section">
+
+              <h3>Thông tin khu trọ</h3>
+
+              <div class="profile-grid">
+
+                <div class="profile-item">
+                  <span>Địa chỉ</span>
+                  <strong>
+                    ${person.address || "Chưa cập nhật"}
+                  </strong>
+                </div>
+
+                <div class="profile-item">
+                  <span>Tổng số phòng</span>
+                  <strong>
+                    ${person.totalRooms || "Chưa cập nhật"}
+                  </strong>
+                </div>
+
+                <div class="profile-item">
+                  <span>Phân loại</span>
+                  <strong>
+                    ${person.type === 'type1'
+                      ? 'Tiêu chuẩn'
+                      : 'Khả năng thanh toán'}
+                  </strong>
+                </div>
+
+              </div>
+
+            </div>
+          `
+        }
+
+
+        <!-- LỊCH SỬ -->
+
+        <div class="profile-section">
+
+          <h3>Lịch sử hoạt động</h3>
+
+          <div class="history-list">
+
+            <div class="history-item">
+              <div class="history-icon">📝</div>
+
+              <div>
+                <strong>Tạo hồ sơ</strong>
+                <small>
+                  ${person.joinedDate || "Chưa cập nhật"}
+                </small>
+              </div>
+            </div>
+
+
+            <div class="history-item">
+              <div class="history-icon">🔐</div>
+
+              <div>
+                <strong>
+                  ${person.verified
+                    ? "Hồ sơ đã được xác thực"
+                    : "Hồ sơ chưa được xác thực"}
+                </strong>
+
+                <small>Gần đây</small>
+              </div>
+            </div>
+
+
+            ${
+              currentTab === 'renter'
+              ? `
+                <div class="history-item">
+
+                  <div class="history-icon">🏠</div>
+
+                  <div>
+                    <strong>
+                      ${person.room === "Chưa có"
+                        ? "Chưa có phòng thuê"
+                        : "Đang thuê " + person.room}
+                    </strong>
+
+                    <small>Hiện tại</small>
+                  </div>
+
+                </div>
+              `
+              : ""
+            }
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- NÚT THAO TÁC -->
+
+      <div class="profile-modal-footer">
+
+        <button
+          class="btn-close-profile"
+          onclick="this.closest('.profile-modal').remove()">
+          Đóng
+        </button>
+        <button
+    class="btn-action-profile"
+    onclick="editProfile('${person.id}')">
+    ✏️ Chỉnh sửa
+         </button>
+        <button
+  class="btn-action-profile"
+  onclick="showProfileActions('${person.id}')">
+  ⚙️ Thao tác
+</button>
+
+      </div>
+
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+}
+function editProfile(id) {
+    const dataList = currentTab === 'renter'
+        ? mockRenters
+        : mockLandlords;
+
+    const person = dataList.find(item => String(item.id) === String(id));
+
+    if (!person) {
+        alert("Không tìm thấy hồ sơ!");
+        return;
+    }
+
+    const editModal = document.createElement("div");
+
+    editModal.className = "profile-modal";
+
+    editModal.innerHTML = `
+        <div class="profile-modal-content" style="
+            max-width: 600px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+        ">
+
+            <h2>✏️ Chỉnh sửa hồ sơ</h2>
+
+            <div style="margin-top:20px;">
+
+                <label>Họ và tên</label>
+                <input
+                    id="edit-name"
+                    type="text"
+                    value="${person.name || ''}"
+                    style="
+                        width:100%;
+                        padding:10px;
+                        margin:6px 0 15px;
+                    "
+                >
+
+                <label>Số điện thoại</label>
+                <input
+                    id="edit-phone"
+                    type="text"
+                    value="${person.phone || ''}"
+                    style="
+                        width:100%;
+                        padding:10px;
+                        margin:6px 0 15px;
+                    "
+                >
+
+                <label>Email</label>
+                <input
+                    id="edit-email"
+                    type="email"
+                    value="${person.email || ''}"
+                    style="
+                        width:100%;
+                        padding:10px;
+                        margin:6px 0 15px;
+                    "
+                >
+
+                <label>Phòng hiện tại</label>
+                <input
+                    id="edit-room"
+                    type="text"
+                    value="${person.room || ''}"
+                    style="
+                        width:100%;
+                        padding:10px;
+                        margin:6px 0 15px;
+                    "
+                >
+
+                <label>Địa chỉ</label>
+                <input
+                    id="edit-address"
+                    type="text"
+                    value="${person.address || ''}"
+                    style="
+                        width:100%;
+                        padding:10px;
+                        margin:6px 0 15px;
+                    "
+                >
+
+            </div>
+
+            <div style="
+                display:flex;
+                justify-content:flex-end;
+                gap:10px;
+                margin-top:20px;
+            ">
+
+                <button
+                    onclick="this.closest('.profile-modal').remove()"
+                    style="
+                        padding:10px 18px;
+                        border:1px solid #ccc;
+                        border-radius:8px;
+                        background:white;
+                        cursor:pointer;
+                    ">
+                    Hủy
+                </button>
+
+                <button
+                    onclick="saveProfile('${person.id}')"
+                    style="
+                        padding:10px 18px;
+                        border:none;
+                        border-radius:8px;
+                        background:#2563eb;
+                        color:white;
+                        cursor:pointer;
+                    ">
+                    💾 Lưu thay đổi
+                </button>
+
+            </div>
+
+        </div>
+    `;
+
+    document.body.appendChild(editModal);
+}
+function saveProfile(id) {
+
+    const dataList = currentTab === 'renter'
+        ? mockRenters
+        : mockLandlords;
+
+    const person = dataList.find(item => String(item.id) === String(id));
+
+    if (!person) {
+        alert("Không tìm thấy hồ sơ!");
+        return;
+    }
+
+    person.name = document.getElementById("edit-name").value;
+    person.phone = document.getElementById("edit-phone").value;
+    person.email = document.getElementById("edit-email").value;
+    person.room = document.getElementById("edit-room").value;
+    person.address = document.getElementById("edit-address").value;
+
+    // Đóng form chỉnh sửa
+    document.querySelectorAll(".profile-modal").forEach(modal => {
+        modal.remove();
+    });
+
+    // Cập nhật lại bảng
+    render();
+
+    alert("Đã cập nhật hồ sơ thành công!");
+
+    // Mở lại chi tiết hồ sơ
+    viewDetail(id);
+}
+function editProfile(id) {
+
+  // Lấy đúng danh sách theo tab hiện tại
+  const dataList = currentTab === 'renter'
+    ? mockRenters
+    : mockLandlords;
+
+  // Tìm hồ sơ
+  const person = dataList.find(item => item.id === id);
+
+  if (!person) {
+    alert("Không tìm thấy hồ sơ!");
+    return;
+  }
+
+  // Tạo modal
+  const modal = document.createElement("div");
+  modal.className = "edit-modal";
+
+  // FORM NGƯỜI THUÊ
+  if (currentTab === 'renter') {
+
+    modal.innerHTML = `
+      <div class="edit-modal-content">
+
+        <div class="edit-modal-header">
+          <div>
+            <h2>Chỉnh sửa hồ sơ</h2>
+            <p>Người thuê</p>
+          </div>
+
+          <button
+            class="edit-close"
+            onclick="this.closest('.edit-modal').remove()">
+            ×
+          </button>
+        </div>
+
+        <form id="editForm">
+
+          <div class="edit-form-group">
+            <label>Họ và tên</label>
+            <input
+              type="text"
+              id="editName"
+              value="${person.name || ''}"
+              required>
+          </div>
+
+          <div class="edit-form-group">
+            <label>Số điện thoại</label>
+            <input
+              type="text"
+              id="editPhone"
+              value="${person.phone || ''}"
+              required>
+          </div>
+
+          <div class="edit-form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              id="editEmail"
+              value="${person.email || ''}">
+          </div>
+
+          <div class="edit-form-group">
+            <label>Trạng thái</label>
+
+            <select id="editStatus">
+
+              <option value="renting"
+                ${person.status === 'renting' ? 'selected' : ''}>
+                Đang thuê
+              </option>
+
+              <option value="looking"
+                ${person.status === 'looking' ? 'selected' : ''}>
+                Đang tìm phòng
+              </option>
+
+              <option value="returned"
+                ${person.status === 'returned' ? 'selected' : ''}>
+                Đã trả phòng
+              </option>
+
+            </select>
+          </div>
+
+          <div class="edit-form-group checkbox-group">
+
+            <label>
+              <input
+                type="checkbox"
+                id="editVerified"
+                ${person.verified ? 'checked' : ''}>
+
+              Xác thực hồ sơ
+            </label>
+
+          </div>
+
+          <div class="edit-form-group">
+            <label>Phòng hiện tại</label>
+
+            <input
+              type="text"
+              id="editRoom"
+              value="${person.room || ''}">
+          </div>
+
+          <div class="edit-form-footer">
+
+            <button
+              type="button"
+              class="btn-cancel-edit"
+              onclick="this.closest('.edit-modal').remove()">
+              Hủy
+            </button>
+
+            <button
+              type="submit"
+              class="btn-save-edit">
+              💾 Lưu thay đổi
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+    `;
+
+  }
+
+  // FORM CHỦ TRỌ
+  else {
+
+    modal.innerHTML = `
+      <div class="edit-modal-content">
+
+        <div class="edit-modal-header">
+
+          <div>
+            <h2>Chỉnh sửa hồ sơ</h2>
+            <p>Chủ trọ</p>
+          </div>
+
+          <button
+            class="edit-close"
+            onclick="this.closest('.edit-modal').remove()">
+            ×
+          </button>
+
+        </div>
+
+        <form id="editForm">
+
+          <div class="edit-form-group">
+            <label>Họ và tên</label>
+
+            <input
+              type="text"
+              id="editName"
+              value="${person.name || ''}"
+              required>
+          </div>
+
+          <div class="edit-form-group">
+            <label>Số điện thoại</label>
+
+            <input
+              type="text"
+              id="editPhone"
+              value="${person.phone || ''}"
+              required>
+          </div>
+
+          <div class="edit-form-group">
+            <label>Email</label>
+
+            <input
+              type="email"
+              id="editEmail"
+              value="${person.email || ''}">
+          </div>
+
+          <div class="edit-form-group">
+            <label>Địa chỉ</label>
+
+            <input
+              type="text"
+              id="editAddress"
+              value="${person.address || ''}">
+          </div>
+
+          <div class="edit-form-group">
+            <label>Tổng số phòng</label>
+
+            <input
+              type="number"
+              id="editTotalRooms"
+              min="0"
+              value="${person.totalRooms || 0}">
+          </div>
+
+          <div class="edit-form-group">
+            <label>Phân loại</label>
+
+            <select id="editType">
+
+              <option value="type1"
+                ${person.type === 'type1' ? 'selected' : ''}>
+                Tiêu chuẩn
+              </option>
+
+              <option value="type2"
+                ${person.type === 'type2' ? 'selected' : ''}>
+                Khả năng thanh toán
+              </option>
+
+            </select>
+
+          </div>
+
+          <div class="edit-form-footer">
+
+            <button
+              type="button"
+              class="btn-cancel-edit"
+              onclick="this.closest('.edit-modal').remove()">
+              Hủy
+            </button>
+
+            <button
+              type="submit"
+              class="btn-save-edit">
+              💾 Lưu thay đổi
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+    `;
+  }
+
+  document.body.appendChild(modal);
+
+  // Xử lý nút LƯU
+  document.getElementById("editForm").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    // Thông tin chung
+    person.name = document.getElementById("editName").value;
+    person.phone = document.getElementById("editPhone").value;
+    person.email = document.getElementById("editEmail").value;
+
+    // Nếu là người thuê
+    if (currentTab === 'renter') {
+
+      person.status =
+        document.getElementById("editStatus").value;
+
+      person.verified =
+        document.getElementById("editVerified").checked;
+
+      person.room =
+        document.getElementById("editRoom").value;
+
+    }
+
+    // Nếu là chủ trọ
+    else {
+
+      person.address =
+        document.getElementById("editAddress").value;
+
+      person.totalRooms =
+        Number(document.getElementById("editTotalRooms").value);
+
+      person.type =
+        document.getElementById("editType").value;
+
+    }
+
+    // Đóng modal
+    modal.remove();
+
+    // Cập nhật bảng ngay lập tức
+    render();
+
+    // Thông báo
+    showToast("Đã cập nhật hồ sơ thành công!");
+
+  });
+}
+function showProfileActions(id) {
+
+  const dataList = currentTab === 'renter'
+    ? mockRenters
+    : mockLandlords;
+
+  const person = dataList.find(item => item.id === id);
+
+  if (!person) {
+    alert("Không tìm thấy hồ sơ!");
+    return;
+  }
+
+  const actionModal = document.createElement("div");
+
+  actionModal.className = "action-modal";
+
+  actionModal.innerHTML = `
+    <div class="action-modal-content">
+
+      <div class="action-modal-header">
+
+        <h3>Thao tác hồ sơ</h3>
+
+        <button
+          onclick="this.closest('.action-modal').remove()">
+          ×
+        </button>
+
+      </div>
+
+      <div class="action-modal-body">
+
+        <p>
+          Hồ sơ:
+          <strong>${person.name}</strong>
+        </p>
+
+        <button
+          class="action-option"
+          onclick="verifyProfile('${person.id}')">
+          🔐 Xác thực hồ sơ
+        </button>
+
+        <button
+          class="action-option"
+          onclick="lockProfile('${person.id}')">
+          🔒 Khóa hồ sơ
+        </button>
+
+        <button
+          class="action-option"
+          onclick="sendNotification('${person.id}')">
+          🔔 Gửi thông báo
+        </button>
+
+      </div>
+
+    </div>
+  `;
+
+  document.body.appendChild(actionModal);
+}
+function verifyProfile(id) {
+
+  const dataList = currentTab === 'renter'
+    ? mockRenters
+    : mockLandlords;
+
+  const person = dataList.find(item => item.id === id);
+
+  if (!person) return;
+
+  // Cập nhật dữ liệu thật
+  person.verified = true;
+
+  // Đóng modal
+  const modal = document.querySelector(".action-modal");
+
+  if (modal) {
+    modal.remove();
+  }
+
+  // Cập nhật bảng
+  render();
+
+  // Hiện thông báo
+  showToast(`Đã xác thực hồ sơ của ${person.name}`);
+}
+function lockProfile(id) {
+
+  const dataList = currentTab === 'renter'
+    ? mockRenters
+    : mockLandlords;
+
+  const person = dataList.find(item => item.id === id);
+
+  if (!person) return;
+
+  // Đánh dấu hồ sơ đã bị khóa
+  person.locked = true;
+
+  // Đóng modal
+  const modal = document.querySelector(".action-modal");
+
+  if (modal) {
+    modal.remove();
+  }
+
+  // Cập nhật bảng
+  render();
+
+  // Thông báo
+  showToast(`Đã khóa hồ sơ của ${person.name}`);
+}
+function sendNotification(id) {
+
+  const dataList = currentTab === 'renter'
+    ? mockRenters
+    : mockLandlords;
+
+  const person = dataList.find(item => item.id === id);
+
+  if (!person) return;
+
+  // Đóng modal
+  const modal = document.querySelector(".action-modal");
+
+  if (modal) {
+    modal.remove();
+  }
+
+  // Demo gửi thông báo
+  showToast(`Đã gửi thông báo tới ${person.name}`);
+}
   searchInput.addEventListener("input", () => { currentPage = 1; render(); });
   statusFilter.addEventListener("change", () => { currentPage = 1; render(); });
   extraFilter.addEventListener("change", () => { currentPage = 1; render(); });
 
   setupFilters();
   render();
+  function showToast(message) {
+
+  const toast = document.createElement("div");
+
+  toast.className = "profile-toast";
+
+  toast.textContent = message;
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 2500);
+}
 </script>
 </body>
 </html>
